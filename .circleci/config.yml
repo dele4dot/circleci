@@ -21,7 +21,7 @@ jobs:
                 echo "text to output here" > output.txt
 
       - persist_to_workspace:
-          root: ~/folder
+          root: .
           paths:
             - output*
   
@@ -32,7 +32,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/folder
+          at: .
 
 
 workflows:

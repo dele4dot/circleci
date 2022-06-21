@@ -37,7 +37,7 @@ jobs:
           at: ./txt
       - run:
           name: "print txt content"
-          command: cd txt & cat output.txt
+          command: mkdir txt & cd txt & cat output.txt
 
 
 workflows:

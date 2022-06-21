@@ -4,11 +4,11 @@ commands:
   print_pipeline_id:
     description: Display the pipeline id
     parameters:
-      name:
+      nameit:
         type: string
         default: $CIRCLE_WORKFLOW_ID
     steps:
-      - run: echo << parameters.name >>
+      - run: echo << parameters.nameit >>
 
 
 jobs:

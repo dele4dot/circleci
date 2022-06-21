@@ -18,6 +18,8 @@ jobs:
       - run:
           name: "save txt file"
           command: |
+                mkdir ./txt
+                cd txt
                 echo "text to output here" > output.txt
 
       - persist_to_workspace:

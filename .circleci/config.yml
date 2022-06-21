@@ -18,6 +18,8 @@ jobs:
       - run:
           name: "save txt file"
           command: |
+                mkdir txt
+                cd txt
                 echo "text to output here" > output.txt
 
       - persist_to_workspace:
@@ -35,7 +37,10 @@ jobs:
           at: ./txt
       - run:
           name: "print txt content"
-          command: cat output.txt
+          command: |
+                  mkdir txt
+                  cd txt
+                  cat output.txt
 
 
 workflows:

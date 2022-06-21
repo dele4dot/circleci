@@ -3,14 +3,15 @@ version: 2.1
 jobs:
   print-environment:
     docker:
-      image: cimg/base:stable
+      - image: cimg/base:stable
 
     steps:
+      - checkout
       - run:
         name: "display variable"
         command: echo $DISPLAY
 
-workflow:
+workflows:
   displayworkflow:
     jobs:
       -print-environment

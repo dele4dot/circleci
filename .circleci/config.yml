@@ -57,7 +57,7 @@ jobs:
 
   print_id:
     docker:
-      -image: cimg/base:stable
+      - image: cimg/base:stable
     steps:
       - checkout
       - print_pipeline_id 

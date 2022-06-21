@@ -8,10 +8,10 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "display variable"
-        command: echo $DISPLAY
+         name: "display variable"
+         command: echo $DISPLAY
 
 workflows:
   displayworkflow:
     jobs:
-      -print-environment
+      - print-environment

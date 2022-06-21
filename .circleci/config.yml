@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
          name: "display variable"
-         command: echo $DISPLAY
+         command: echo what I want in the console
 
 workflows:
   displayworkflow:

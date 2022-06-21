@@ -1,16 +1,12 @@
 version: 2.1
 
 jobs:
-  print-environment:
+  save-txt:
     docker:
       - image: cimg/base:stable
 
     steps:
       - checkout
-      - run:
-         name: "display variable"
-         command: echo what I want in the console
-
       - run:
           name: "Setup custom environment variables"
           command: echo 'export MY_ENV_VAR="FOO"' >> $BASH_ENV
@@ -19,7 +15,30 @@ jobs:
           name: "What was my custom environment variable?"
           command: echo ${MY_ENV_VAR}
 
+      - run:
+          name: "save txt file"
+          command: |
+                echo "text to output here" > output.txt
+
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - output*
+  
+  print-txt:
+    docker:
+      - image: cimg/base:stable
+
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /tmp/workspace
+
+
 workflows:
   displayworkflow:
     jobs:
-      - print-environment
+      - save-txt
+      - print-txt:
+          requires:
+            - save-txt

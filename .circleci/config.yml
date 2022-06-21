@@ -20,6 +20,7 @@ jobs:
           command: |
                 mkdir txt
                 cd txt
+                pwd
                 echo "text to output here" > output.txt
 
       - persist_to_workspace:
@@ -33,6 +34,7 @@ jobs:
 
     steps:
       - checkout
+      - run: pwd
       - attach_workspace:
           at: ./txt
       - run:

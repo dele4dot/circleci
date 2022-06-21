@@ -1,5 +1,16 @@
 version: 2.1
 
+commands:
+  print_pipeline_id:
+    description: Display the pipeline id
+    parameters:
+      name:
+        type: string
+        default: "ci pipeline id"
+    steps:
+      - run: echo $CIRCLE_WORKFLOW_ID
+
+
 jobs:
   save-txt:
     docker:
@@ -44,11 +55,15 @@ jobs:
                   cd txt
                   cat output.txt
 
+  print_id:
+    docker:
+      -image: cimg/base:stable
+    steps:
+      - checkout
+      - print_pipeline_id 
+
 
 workflows:
   displayworkflow:
     jobs:
-      - save-txt
-      - print-txt:
-          requires:
-            - save-txt
+      - print_id

@@ -24,7 +24,7 @@ jobs:
                 echo "text to output here" > output.txt
 
       - persist_to_workspace:
-          root: .
+          root: ./
           paths:
             - output*
   
@@ -36,7 +36,7 @@ jobs:
       - checkout
       - run: pwd
       - attach_workspace:
-          at: .
+          at: ./
       - run:
           name: "print txt content"
           command: |

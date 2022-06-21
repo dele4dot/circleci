@@ -11,6 +11,14 @@ jobs:
          name: "display variable"
          command: echo what I want in the console
 
+      - run:
+          name: "Setup custom environment variables"
+          command: echo 'export MY_ENV_VAR="FOO"' >> $BASH_ENV
+
+      - run:
+          name: "What was my custom environment variable?"
+          command: echo ${MY_ENV_VAR}
+
 workflows:
   displayworkflow:
     jobs:

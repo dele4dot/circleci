@@ -40,6 +40,7 @@ jobs:
       - run:
           name: "print txt content"
           command: |
+                  pwd
                   cd txt
                   cat output.txt
 

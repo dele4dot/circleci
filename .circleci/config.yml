@@ -33,6 +33,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
+      - run:
+          name: "print txt content"
+          command: cat output.txt
 
 
 workflows:
